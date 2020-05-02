@@ -1,5 +1,5 @@
 {
-  "name": "ng-providers",
+  "name": "@matheo/ng-providers",
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {

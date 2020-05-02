@@ -1,5 +1,5 @@
 {
-  "npmScope": "ng-providers",
+  "npmScope": "matheo",
   "implicitDependencies": {
     "angular.json": "*",
     "package.json": {
