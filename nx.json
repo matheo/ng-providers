@@ -25,6 +25,9 @@
     "website-e2e": {
       "tags": [],
       "implicitDependencies": ["website"]
+    },
+    "common": {
+      "tags": []
     }
   }
 }
