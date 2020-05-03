@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
+import { DisplayComponent } from './components/display/display.component';
 import { HttpService } from './services/http.service';
 import { API_URL_TOKEN } from './tokens/api.token';
 
@@ -8,10 +9,13 @@ import { API_URL_TOKEN } from './tokens/api.token';
   imports: [
     CommonModule,
   ],
-  declarations: [],
+  declarations: [
+    DisplayComponent,
+  ],
   exports: [
     CommonModule,
     HttpClientModule,
+    DisplayComponent,
   ],
   providers: [
     HttpService,
