@@ -12,7 +12,7 @@ import { RouterModule } from '@angular/router';
       }
     ]),
     MyCommonModule.forChild({
-      apiUrl: '/root/mod2',
+      apiUrl: '/root/mod1',
     }),
   ],
   declarations: [Mod1Component],

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpService, TreeShakeableService } from '@matheo/common';
 
 @Component({
   selector: 'app-mod2',
@@ -7,7 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class Mod2Component implements OnInit {
 
-  constructor() { }
+  constructor(
+    public http: HttpService,
+    public shakeable: TreeShakeableService,
+  ) { }
 
   ngOnInit(): void {
   }

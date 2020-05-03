@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
 import { HttpService } from './services/http.service';
 import { API_URL_TOKEN } from './tokens/api.token';
 
@@ -10,6 +11,7 @@ import { API_URL_TOKEN } from './tokens/api.token';
   declarations: [],
   exports: [
     CommonModule,
+    HttpClientModule,
   ],
   providers: [
     HttpService,
