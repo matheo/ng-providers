@@ -1,11 +1,11 @@
-import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MyCommonModule } from '@matheo/common';
 import { AppComponent } from './app.component';
 
 @NgModule({
   imports: [
-    BrowserModule,
+    BrowserAnimationsModule,
     MyCommonModule.forRoot({
       apiUrl: '/root',
     }),
