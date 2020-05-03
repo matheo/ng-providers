@@ -11,7 +11,7 @@ import { MyCommonModule, DisplayComponent } from '@matheo/common';
       }
     ]),
     MyCommonModule.forChild({
-      apiUrl: '/root/mod2',
+      apiUrl: 'mod2',
     }),
   ],
   declarations: [],

@@ -15,7 +15,7 @@ import { RouterModule } from '@angular/router';
       }
     ]),
     MyCommonModule.forChild({
-      apiUrl: '/root/mod1',
+      apiUrl: 'mod1',
     }),
   ],
   declarations: [],

@@ -13,6 +13,10 @@ export class HttpService extends HttpClient {
     console.log(`HttpService instantiated with ${this.apiUrl}`);
   }
 
+  name() {
+    return super.get(`/assets/${this.apiUrl}.json`);
+  }
+
   print() {
     return `HttpService API_URL: ${this.apiUrl}`;
   }

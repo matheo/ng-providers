@@ -15,7 +15,7 @@ import { routes } from './app.routing';
     MatButtonModule,
     MatToolbarModule,
     MyCommonModule.forRoot({
-      apiUrl: '/root',
+      apiUrl: 'root',
     }),
     RouterModule.forRoot(routes),
   ],

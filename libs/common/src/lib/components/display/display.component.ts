@@ -16,6 +16,8 @@ export class DisplayComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.http.name().subscribe(data => {
+      this.name = data['name'];
+    })
   }
-
 }
