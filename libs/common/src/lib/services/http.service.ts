@@ -14,7 +14,7 @@ export class HttpService extends HttpClient {
   }
 
   name() {
-    return super.get(`/assets/${this.apiUrl}.json`);
+    return super.get(`assets/${this.apiUrl}.json`);
   }
 
   print() {
