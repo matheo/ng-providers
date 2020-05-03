@@ -8,7 +8,7 @@ export class TreeShakeableService {
   constructor(
     @Inject(API_URL_TOKEN) private apiUrl: string
   ) {
-    console.log(`TreeShakeableService instantiated with ${this.apiUrl}`);
+    console.log(`new TreeShakeableService(${this.apiUrl})`);
   }
 
   print() {

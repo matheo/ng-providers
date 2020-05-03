@@ -10,7 +10,7 @@ export class HttpService extends HttpClient {
   ) {
     super(httpHandler);
 
-    console.log(`HttpService instantiated with ${this.apiUrl}`);
+    console.log(`new HttpService(${this.apiUrl})`);
   }
 
   name() {

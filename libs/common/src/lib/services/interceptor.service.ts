@@ -1,21 +1,23 @@
-import { Injectable } from '@angular/core';
-import { HttpEvent, HttpHandler, HttpRequest, HttpResponse } from '@angular/common/http';
-import { Observable, of } from 'rxjs';
-import { switchMap } from 'rxjs/operators';
+import { Injectable, Injector, Inject } from '@angular/core';
+import { HttpEvent, HttpHandler, HttpRequest } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { API_URL_TOKEN } from '../tokens/api.token';
+import { ErrorHandlerService } from './error-handler.service';
 
 @Injectable()
 export class InterceptorService {
+  errorHandler: ErrorHandlerService;
 
-  constructor() {
-    console.log('new InterceptorService');
+  constructor(
+    private injector: Injector,
+    @Inject(API_URL_TOKEN) private apiUrl: string,
+  ) {
+    this.errorHandler = this.injector.get(ErrorHandlerService);
+
+    console.log(`new InterceptorService(${this.apiUrl}) w/ errorHandler(${this.errorHandler.i})`);
   }
 
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    return next.handle(request).pipe(
-      switchMap((resp: HttpResponse<any>) => {
-        console.log(resp)
-        return of(resp);
-      }),
-    );
+    return this.errorHandler.getResult(request, next);
   }
 }
