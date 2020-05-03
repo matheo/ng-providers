@@ -20,7 +20,7 @@ export class ErrorHandlerService {
   }
 
   getResult(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    // console.log(`ErrorHandler(${this.i}).getResult`);
+    console.log(`used ErrorHandler(${this.i})(${this.apiUrl})`);
     return next.handle(request);
   }
 }

@@ -16,6 +16,7 @@ import { RouterModule } from '@angular/router';
     ]),
     MyCommonModule.forChild({
       apiUrl: 'mod1',
+      errorRetry: 'mod1Retry',
     }),
   ],
   declarations: [],
