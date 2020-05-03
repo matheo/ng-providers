@@ -9,6 +9,10 @@ import { RouterModule } from '@angular/router';
       {
         path: '',
         component: Mod1Component,
+      },
+      {
+        path: 'submod1',
+        loadChildren: () => import('./submod1/submod1.module').then(m => m.Submod1Module),
       }
     ]),
     MyCommonModule.forChild({
