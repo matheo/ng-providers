@@ -1,9 +1,11 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { MyCommonModule } from '@matheo/common';
 
 @NgModule({
   imports: [
-    CommonModule
+    MyCommonModule.forChild({
+      apiUrl: '/root/mod2',
+    }),
   ],
   declarations: [],
 })
