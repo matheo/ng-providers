@@ -15,7 +15,8 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/apps/website",
+            "baseHref": "/ng-providers/",
+            "outputPath": "docs",
             "index": "apps/website/src/index.html",
             "main": "apps/website/src/main.ts",
             "polyfills": "apps/website/src/polyfills.ts",
@@ -43,7 +44,7 @@
               "outputHashing": "all",
               "sourceMap": false,
               "extractCss": true,
-              "namedChunks": false,
+              "namedChunks": true,
               "extractLicenses": true,
               "vendorChunk": false,
               "buildOptimizer": true,
