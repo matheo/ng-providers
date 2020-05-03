@@ -2,9 +2,11 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { DisplayComponent } from './components/display/display.component';
+import { ErrorHandlerService } from './services/error-handler.service';
 import { HttpService } from './services/http.service';
 import { InterceptorService } from './services/interceptor.service';
 import { API_URL_TOKEN } from './tokens/api.token';
+import { ERROR_RETRY_TOKEN } from './tokens/error.token';
 
 @NgModule({
   imports: [
@@ -19,35 +21,58 @@ import { API_URL_TOKEN } from './tokens/api.token';
     DisplayComponent,
   ],
   providers: [
-    HttpService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: InterceptorService,
+      multi: true,
+    },
   ]
 })
 export class MyCommonModule {
-  static forRoot(config: { apiUrl: string }) {
+  static forRoot(config: { apiUrl: string, errorRetry?: string }) {
     return {
       ngModule: MyCommonModule,
       providers: [
+        HttpService,
+        ErrorHandlerService,
         {
           provide: API_URL_TOKEN,
           useValue: config.apiUrl,
         },
         {
-          provide: HTTP_INTERCEPTORS,
-          useClass: InterceptorService,
-          multi: true,
+          provide: ERROR_RETRY_TOKEN,
+          useValue: config.errorRetry || 'defaultRetry',
         },
       ]
     };
   }
 
-  static forChild(config: { apiUrl: string }) {
+  static forChild(config: { apiUrl?: string, errorRetry?: string }) {
     return {
       ngModule: MyCommonModule,
       providers: [
-        {
-          provide: API_URL_TOKEN,
-          useValue: config.apiUrl,
-        }
+        /**
+         * The services using the Token needs to be provided
+         * in the same level of the hierarchy tree to use it instead the parent one.
+         */
+        !config.apiUrl
+          ? []
+          : [
+              HttpService,
+              {
+                provide: API_URL_TOKEN,
+                useValue: config.apiUrl,
+              },
+            ],
+        !config.errorRetry
+          ? []
+          : [
+              ErrorHandlerService,
+              {
+                provide: ERROR_RETRY_TOKEN,
+                useValue: config.errorRetry,
+              }
+            ],
       ]
     }
   }
