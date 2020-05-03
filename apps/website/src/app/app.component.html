@@ -4,12 +4,13 @@
 
     <span fxFlex class="fill"></span>
 
-    <span>Submodules</span>
+    <button mat-button routerLink="mod1">Mod1</button>
+    <button mat-button routerLink="mod2">Mod2</button>
   </mat-toolbar-row>
 </mat-toolbar>
 
 <div fxFlexFill fxLayout="row" fxLayoutAlign="center center">
 
-  Content
+  <router-outlet></router-outlet>
 
 </div>
