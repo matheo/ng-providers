@@ -6,7 +6,6 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { RouterModule } from '@angular/router';
 import { MyCommonModule } from '@matheo/common';
 import { AppComponent } from './app.component';
-import { RootComponent } from './root/root.component';
 import { routes } from './app.routing';
 
 @NgModule({
@@ -20,7 +19,7 @@ import { routes } from './app.routing';
     }),
     RouterModule.forRoot(routes),
   ],
-  declarations: [RootComponent, AppComponent],
+  declarations: [AppComponent],
   bootstrap: [AppComponent],
   providers: [],
 })

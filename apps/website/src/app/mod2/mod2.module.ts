@@ -1,20 +1,19 @@
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { MyCommonModule } from '@matheo/common';
-import { Mod2Component } from './mod2.component';
+import { MyCommonModule, DisplayComponent } from '@matheo/common';
 
 @NgModule({
   imports: [
     RouterModule.forChild([
       {
         path: '',
-        component: Mod2Component,
+        component: DisplayComponent,
       }
     ]),
     MyCommonModule.forChild({
       apiUrl: '/root/mod2',
     }),
   ],
-  declarations: [Mod2Component],
+  declarations: [],
 })
 export class Mod2Module { }

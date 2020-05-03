@@ -1,10 +1,10 @@
 import { Routes } from '@angular/router';
-import { RootComponent } from './root/root.component';
+import { DisplayComponent } from '@matheo/common';
 
 export const routes: Routes = [
   {
     path: '',
-    component: RootComponent,
+    component: DisplayComponent,
   },
   {
     path: 'mod1',
