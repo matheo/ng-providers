@@ -1,10 +1,10 @@
 import { Routes } from '@angular/router';
+import { RootComponent } from './root/root.component';
 
 export const routes: Routes = [
   {
     path: '',
-    pathMatch: 'full',
-    redirectTo: 'mod1',
+    component: RootComponent,
   },
   {
     path: 'mod1',
