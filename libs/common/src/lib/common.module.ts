@@ -20,13 +20,6 @@ import { ERROR_RETRY_TOKEN } from './tokens/error.token';
     HttpClientModule,
     DisplayComponent,
   ],
-  providers: [
-    {
-      provide: HTTP_INTERCEPTORS,
-      useClass: InterceptorService,
-      multi: true,
-    },
-  ]
 })
 export class MyCommonModule {
   static forRoot(config: { apiUrl: string, errorRetry?: string }) {
@@ -43,6 +36,11 @@ export class MyCommonModule {
           provide: ERROR_RETRY_TOKEN,
           useValue: config.errorRetry || 'defaultRetry',
         },
+        {
+          provide: HTTP_INTERCEPTORS,
+          useClass: InterceptorService,
+          multi: true,
+        }
       ]
     };
   }

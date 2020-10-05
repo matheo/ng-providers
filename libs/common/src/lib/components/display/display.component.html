@@ -1,5 +1,11 @@
 <h2>{{ name }}</h2>
 
-<p>{{ http.print() }}</p>
+<!--p>{{ http.print() }}</p-->
 
-<p>{{ shakeable.print() }}</p>
+<!--p>{{ shakeable.print() }}</p-->
+
+<p>HTTP_INTERCEPTORS</p>
+
+<ul>
+  <li *ngFor="let interceptor of list">{{ interceptor }}</li>
+</ul>
